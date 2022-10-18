@@ -14,7 +14,7 @@ def printans(strtp):
 
 #########################
 print("Welcome to Calcpy!")
-mode = input
+mode = input()
 
 num1 = 1
 num2 = 3
