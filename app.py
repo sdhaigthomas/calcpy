@@ -9,9 +9,9 @@ try:
             while True:
                 turn=0
                 difficulty = input("Easy(1), Medium(2), Hard(3) or Custom(4)\n")
-                if difficulty=="1": amount=25
-                elif difficulty=="2": amount=50
-                elif difficulty=="3": amount=100
+                if difficulty=="1": amount=10
+                elif difficulty=="2": amount=25
+                elif difficulty=="3": amount=50
                 elif difficulty=="4": amount=int(input("Custom: 1 to\n"))
                 else: print("Unknown mode. Defaulting to 0, 25"), amount
                 ans=random.randint(1,amount)
@@ -61,7 +61,11 @@ try:
 
             play = input("Welcome To Doge Coin Mineing Simulator!\n         Press enter to play\n")
 
-            
+            difficulty = input("Pick tax difficulty Easy(1), Medium(2), Hard(3) or Custom(4)\n")
+            if difficulty=="1": amount=5
+            elif difficulty=="2": amount=10
+            elif difficulty=="3": amount=30
+            elif difficulty=="4": amount=int(input("Tax per turn\n"))
 
 
             while True:
@@ -95,7 +99,11 @@ try:
                     else: dcp -= up_down
 
                     if dcp < 2: dcp = random.randint(5,10)
+                    money -= amount
 
+                    if money < 0:
+                        print("Oh no your bankrupt!")
+                        break
 
                 else:
                     print("Opps! Thats not somthing you can do! dum dum\n\n")
