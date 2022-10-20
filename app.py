@@ -1,5 +1,6 @@
-try:
-    #########################
+
+def main():
+    #######################
     import random, time
 
     #########################
@@ -8,12 +9,12 @@ try:
         def gtn():
             while True:
                 turn=0
-                difficulty = input("Easy(1), Medium(2), Hard(3) or Custom(4)\n")
+                difficulty = input("Easy(1), Medium(2), Hard(3) or Custom(4) or press enter to quit\n")
                 if difficulty=="1": amount=10
                 elif difficulty=="2": amount=25
                 elif difficulty=="3": amount=50
                 elif difficulty=="4": amount=int(input("Custom: 1 to\n"))
-                else: print("Unknown mode. Defaulting to 0, 25"), amount
+                else: break
                 ans=random.randint(1,amount)
                 while True:
                     try:geuss=int(input("Whats your guess?\n"))
@@ -25,7 +26,7 @@ try:
                     else:
                         if geuss<=ans:print("The number is larger then", geuss)
                         else:print("The number is smaller then then", geuss)
-        
+       
         def dcms():
             currency = "£"
 
@@ -59,24 +60,27 @@ try:
             @@@@@@@@@@@@@@@@((((*,,,,,,,,*/((((@@@@@@@@@@@@@@@
             """)
 
+
+
             play = input("Welcome To Doge Coin Mineing Simulator!\n         Press enter to play\n")
 
-            difficulty = input("Pick tax difficulty Easy(1), Medium(2), Hard(3) or Custom(4)\n")
-            if difficulty=="1": amount=5
+            difficulty = input("Pick tax difficulty Easy(1), Medium(2), Hard(3) or Custom(4)(also tax evasion mode 5)\n")
+            if difficulty=="5": amount=0
+            elif difficulty=="1": amount=5
             elif difficulty=="2": amount=10
             elif difficulty=="3": amount=30
             elif difficulty=="4": amount=int(input("Tax per turn\n"))
-
+            else: pass
 
             while True:
 
                 print("____________________________________________")
                 print(" Doge Coin Owned:", doge_coin_owned, "\n Doge Coin Price:",dcp, "\n Money:", "£" + str(money))
                 print("____________________________________________")
-                move = input("\nWould you like to buy(1), sell(2) or wait till tomorrow (Enter)\n")
+                move = input("\nWould you like to buy(1), sell(2), wait till tomorrow (Enter) \n")
                 max_buy = money / dcp
                 if move == "1":
-                    amount_to_buy = int(input("How many doge coins do you want to buy?\n"))
+                    amount_to_buy = int(input("How many doge coins do you want to buy?(You can buy "+ str(max_buy) +")\n"))
                     if (dcp * amount_to_buy) > money:
                         print("Oh no, You cant afford that!\n")
                     else:
@@ -92,9 +96,9 @@ try:
                         doge_coin_owned -= amount_to_sell
                 elif move == "":
                     up_down = random.randint(1,10)
-                    dcp_u_d = random.randint(1,3)
-                    print(dcp_u_d)
-                    if dcp_u_d == 1:dcp += up_down
+                    dcp_ud = random.randint(1,3)
+                    print(dcp_ud)
+                    if dcp_ud == 1:dcp += up_down
                     if dcp < 5: dcp = random.randint(5,20)
                     else: dcp -= up_down
 
@@ -122,5 +126,5 @@ try:
     if game == 1: Games.gtn()
     elif game == 2: Games.dcms()
 
-except:
-    print("There Has Been A Critical Error!")
+
+main()
